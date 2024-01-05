@@ -1,4 +1,4 @@
-import styles from '../../public/css/Spacer.module.css'
+import styles from '../../public/css/components/spacer.module.css'
 
 export function Spacer() {
   return (

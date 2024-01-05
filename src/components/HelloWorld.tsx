@@ -1,6 +1,7 @@
 import React from "react";
 import { useCars } from "../hooks/useCars";
 import { CarCard } from "./CarCard";
+import { Spacer } from "./Spacer";
 
 import { Text } from "vcc-ui";
 import styles from '../../public/css/home.module.css';
@@ -12,8 +13,8 @@ export const HelloWorld: React.FC = () => {
 
   return (
     <div className={styles.homeWrapper}>
-      <Text variant="peary">Todos os modelos recharge</Text>
-
+      <Text variant="cook">Todos os modelos recharge</Text>
+      <Spacer />
       <div className={styles.cardsWrapper}>
         {cars.map(car =>
           <CarCard
@@ -21,7 +22,7 @@ export const HelloWorld: React.FC = () => {
             car={car}
           />
         )}
-        TS</div>
+        TSSp</div>
     </div>
   )
 };
