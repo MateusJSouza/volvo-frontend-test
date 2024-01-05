@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Flex, Link, Spacer, Text } from "vcc-ui"
 import { Car } from "../types/car.interface"
 
-import styles from '../../public/css/CarCard.module.css'
+import styles from '../../public/css/carCard.module.css'
 
 interface CardProps {
   car: Car
