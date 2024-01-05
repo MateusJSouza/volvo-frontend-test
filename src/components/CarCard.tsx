@@ -36,7 +36,7 @@ export function CarCard({ car }: CardProps) {
           flexDirection: 'row',
           alignItems: 'center',
           width: '100%',
-          gap: 4,
+          gap: 14,
         }}
       >
         <Link href="https://www.volvocars.com" arrow="right">
