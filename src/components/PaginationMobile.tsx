@@ -1,15 +1,13 @@
 import { IconButton } from "vcc-ui";
 
-import styles from '../../public/css/components/pagination.module.css';
-
-interface PaginationDesktopProps {
+interface PaginationMobile {
   onClickLeft(): void
   onClickRight(): void
 }
 
-export function PaginationDesktop({ onClickLeft, onClickRight }: PaginationDesktopProps) {
+export function PaginationMobile({ onClickLeft, onClickRight }: PaginationMobile) {
   return (
-    <div className={styles.btnWrapper}>
+    <div>
       <IconButton
         variant="outline"
         onClick={onClickLeft}
