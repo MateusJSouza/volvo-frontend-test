@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { Flex, Link, Spacer, Text } from "vcc-ui"
-import { Car } from "../types/car.interface"
+import Image from 'next/image'
+import { Flex, Link, Spacer, Text } from 'vcc-ui'
+import { Car } from '../types/car.interface'
 
 import styles from '../../public/css/components/carCard.module.css'
 
@@ -11,7 +11,9 @@ interface CardProps {
 export function CarCard({ car }: CardProps) {
   return (
     <div className={styles.cardWrapper}>
-      <Text variant="bates" subStyle="emphasis">{car?.bodyType}</Text>
+      <Text variant="bates" subStyle="emphasis">
+        {car?.bodyType}
+      </Text>
       <Flex
         extend={{
           display: 'flex',
@@ -22,7 +24,9 @@ export function CarCard({ car }: CardProps) {
         }}
       >
         <Text variant="amundsen">{car?.modelName}</Text>
-        <Text variant="bates" subStyle="inline-link">{car?.modelType}</Text>
+        <Text variant="bates" subStyle="inline-link">
+          {car?.modelType}
+        </Text>
       </Flex>
 
       <Spacer />

@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleProvider, ThemePicker } from "vcc-ui";
-import { Home } from "../src/components/Home";
+import React from 'react'
+import { StyleProvider, ThemePicker } from 'vcc-ui'
+import { Home } from '../src/components/Home'
 
-import "../public/css/styles.css";
+import '../public/css/styles.css'
 
 function HomePage() {
   return (
@@ -13,7 +13,7 @@ function HomePage() {
         </ThemePicker>
       </StyleProvider>
     </React.StrictMode>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage
