@@ -18,9 +18,7 @@ export function PaginationMobile({
           className={i === selected ? styles.btnSelected : styles.btn}
           key={i}
           onClick={() => onClick(i)}
-        >
-          {element}
-        </button>
+        />
       ))}
     </div>
   )
