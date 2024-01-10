@@ -1,26 +1,27 @@
-import { IconButton } from "vcc-ui";
+import styles from '../../public/css/components/paginationMobile.module.css'
 
-interface PaginationMobile {
-  onClickLeft(): void
-  onClickRight(): void
+interface PaginationMobileProps {
+  total: number
+  onClick(i: number): void
+  selected: number
 }
 
-export function PaginationMobile({ onClickLeft, onClickRight }: PaginationMobile) {
+export function PaginationMobile({
+  total,
+  onClick,
+  selected,
+}: PaginationMobileProps) {
   return (
-    <div>
-      <IconButton
-        variant="outline"
-        onClick={onClickLeft}
-        aria-label="esquerda"
-        iconName="navigation-chevronback"
-      />
-
-      <IconButton
-        variant="outline"
-        onClick={onClickRight}
-        aria-label="direita"
-        iconName="navigation-chevronforward"
-      />
+    <div className={styles.btnWrapper}>
+      {Array.from({ length: total }).map((element, i) => (
+        <button
+          className={i === selected ? styles.btnSelected : styles.btn}
+          key={i}
+          onClick={() => onClick(i)}
+        >
+          {element}
+        </button>
+      ))}
     </div>
   )
 }

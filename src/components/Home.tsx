@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCars } from '../hooks/useCars'
 import { CarCard } from './CarCard'
 import { Spacer } from './Spacer'
@@ -11,6 +11,8 @@ import { PaginationMobile } from './PaginationMobile'
 export const Home: React.FC = () => {
   const { cars } = useCars()
 
+  const [selected, setSelected] = useState(0)
+
   function onClickNavigate(left: boolean) {
     const cardList = document.getElementById('card-list')
     const card = cardList?.firstElementChild
@@ -22,7 +24,13 @@ export const Home: React.FC = () => {
   }
 
   function onClickMobile(index: number) {
-    console.log(index)
+    const cardList = document.getElementById('card-list')
+    const card = cardList?.firstElementChild
+    const cardSize = (card?.clientWidth ?? 0) + 24
+    const scrollPosition = cardList?.scrollLeft ?? 0
+
+    cardList?.scrollTo({ left: scrollPosition + cardSize * index })
+    setSelected(index)
   }
 
   return (
