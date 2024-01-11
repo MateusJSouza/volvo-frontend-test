@@ -25,12 +25,22 @@ export const Home: React.FC = () => {
 
   function onClickMobile(index: number) {
     const cardList = document.getElementById('card-list')
-    const card = cardList?.firstElementChild
-    const cardSize = (card?.clientWidth ?? 0) + 24
-    const scrollPosition = cardList?.scrollLeft ?? 0
 
-    cardList?.scrollTo({ left: scrollPosition + cardSize * index })
-    setSelected(index)
+    if (cardList) {
+      const card = cardList.firstElementChild as HTMLElement | null
+
+      if (card) {
+        const cardSize = cardList?.clientWidth + 24
+        const scrollPosition = cardList?.scrollLeft
+        const targetScroll = cardSize * index
+        const scrollAmount = targetScroll - scrollPosition
+        cardList.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth',
+        })
+        setSelected(index)
+      }
+    }
   }
 
   return (
@@ -41,17 +51,18 @@ export const Home: React.FC = () => {
         {cars.map((car) => (
           <CarCard key={car.id} car={car} />
         ))}
-        <PaginationDesktop
-          onClickLeft={() => onClickNavigate(true)}
-          onClickRight={() => onClickNavigate(false)}
-        />
-
-        <PaginationMobile
-          selected={selected}
-          onClick={onClickMobile}
-          total={cars.length}
-        />
       </div>
+
+      <PaginationDesktop
+        onClickLeft={() => onClickNavigate(true)}
+        onClickRight={() => onClickNavigate(false)}
+      />
+
+      <PaginationMobile
+        selected={selected}
+        onClick={onClickMobile}
+        total={cars.length - 2}
+      />
     </div>
   )
 }
