@@ -47,7 +47,7 @@ export const Home: React.FC = () => {
         />
 
         <PaginationMobile
-          selected={0}
+          selected={selected}
           onClick={onClickMobile}
           total={cars.length}
         />
